@@ -1,0 +1,173 @@
+import java.util.*;
+class PhoneBook 
+{
+	static
+	{
+		for(int i=0; i<1;i++)
+		{
+		   for(int j=0; j<=120; j++)
+		   {
+			   if(j == 57)
+			   {
+		           System.out.print(" MY CONTACTS ");
+			   }
+			   else
+			   {
+				   System.out.print("+");
+			   }
+		   }
+		}
+		System.out.println();
+	}
+	public static void main(String[] args) 
+	{
+		int choice =0;
+		String name="no data";
+	    long phonenumber=0l;
+        String searcher = "no data";
+		while(true)
+		{
+		   for(int i=0; i<=4; i++)
+			{
+			   for(int j=0; j<=132; j++)
+		       {
+			       if(i==0 && j == 50)
+			       {
+			              System.out.print("Press 1 : Enter new List");
+				   }
+				   if(i==1 && j==50)
+				   {
+						  System.out.print("Press 2 : Enter to Search Contacts: ");
+				   }
+				   if(i==2 && j==50)
+				   {
+						  System.out.print("Press 3 : See the whole Contacts: ");
+				   }
+				   if(i==3 && j==50)
+				   {
+				          System.out.print("Press 4 : To go Back !");
+				   }
+				   if(i==4)
+				   {
+					   System.out.print("+");
+				   }
+				   else
+				   {
+					   System.out.print(" ");
+				   }
+			   }
+			   System.out.println();
+		     }
+			 
+			Scanner takechoice = new Scanner(System.in);
+			choice = takechoice.nextInt();
+
+			EnterName d1 = new EnterName();
+
+			switch(choice)
+			{
+				case 1: name = d1.enterName(name);
+				        phonenumber = d1.enterPhone(phonenumber);
+						System.out.println("......................Saved................................................");
+
+				        break;
+				case 2: d1.search(searcher,name,phonenumber);
+				        break;
+				case 3: d1.myWholeContacts(name, phonenumber);
+				        break;
+				default : System.exit(0);
+			}
+		}
+	}
+}
+
+class EnterName
+{
+	String enterName(String name)
+	{
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter the name");
+		name = scan.nextLine();
+		return name;
+	}
+	long enterPhone(long phonenumber)
+	{
+		Scanner nu = new Scanner(System.in);
+        System.out.println("Enter the Phone Number");
+		phonenumber = nu.nextLong();
+		return phonenumber;
+	}
+	void search(String searcher, String name, long phonenumber)
+	{
+		Scanner searching = new Scanner(System.in);
+		System.out.println("Enter the first word: ");
+		searcher = searching.nextLine();
+		if(name.startsWith(searcher) == true)
+		{
+		  for(int i=0;i<=1;i++)
+		  {
+			for(int j=0;j<=30;j++)
+		    {
+			     if(i==0 && j==0)
+				{
+				 System.out.print("Name");
+				}
+			     if(i==0 && j ==15)
+			     {
+		              System.out.print("Phone number");
+				 }
+				 else
+				{
+					 System.out.print(" ");
+				}
+				if(i==1 && j==0)
+				{
+					System.out.print(name);
+				}
+				if(i==1 && j==16)
+				{
+						System.out.print(phonenumber);
+				}
+			}
+			System.out.println();
+		}
+		}
+		else
+		{
+			System.out.println("Oops ! Contact not found");
+		}
+		
+	}
+
+	void myWholeContacts(String name, long phonenumber)
+	{
+		for(int i=0;i<=1;i++)
+		{
+			for(int j=0;j<=30;j++)
+		    {
+			    if(i==0 && j==0)
+				{
+				      System.out.print("Name");
+				 }
+			     if(i==0 && j ==15)
+			     {
+		              System.out.print("Phone number");
+				 }
+				 else
+				 {
+					 System.out.print(" ");
+				 }
+				if(i==1 && j==0)
+				{
+					System.out.print(name);
+				}
+				if(i==1 && j==16)
+				{
+						System.out.print(phonenumber);
+				}
+			}
+			System.out.println();
+		}
+	}
+
+}
